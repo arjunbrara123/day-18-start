@@ -8,10 +8,12 @@ tim.shape("turtle")
 tim.color("magenta2")
 cols = ["magenta2", "red", "orange", "green", "blue", "purple"]
 random.shuffle(cols)
-tim.pensize(15)
 screen = Screen()
 screen.delay(0)
 tim.speed("fastest")
+# for i in range(36):
+#     tim.circle(100)
+#     tim.right(10)
 
 
 def turtle_draw(sides):
@@ -21,15 +23,17 @@ def turtle_draw(sides):
 
 
 screen.colormode(255)
-for i in range(5000):
+for i in range(500):
     # tCol = str(cols[random.randint(0, 5)])
     # tim.color(tCol)
-    side_a = min(255,int(255*abs(tim.pos()[0])/200))
-    side_b = min(255,int(255*abs(tim.pos()[1])/200))
+    side_a = min(255,int(255*abs(tim.pos()[0])/70))
+    side_b = min(255,int(255*abs(tim.pos()[1])/70))
     if tim.pos()[0] >= 0:
         side_c = 255-min(255, int((side_a**2 + side_b**2)**0.5))
     else:
         side_c = min(255, int((side_a ** 2 + side_b ** 2) ** 0.5))
+    tim.pensize(abs((50-side_c/5)-25))
+
     tim.pencolor(side_a, side_b, side_c)
     # turtle_draw(int(i))
     rand_dir = random.randint(1, 360)
